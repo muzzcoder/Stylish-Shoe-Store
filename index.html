@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STYLISH SHOE STORE</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+<body>
+    <!-- navigation section -->
+    <nav class="container-fluid">
+        <div class="row">
+            <div class="icons col-lg-4">
+                <a href="https://facebook.com"><i class="bi bi-facebook text-dark"></i></a>
+                <a href="https://youtube.com"><i class="bi bi-youtube  text-dark"></i></a>
+                <a href="https://pinterest.com"><i class="bi bi-pinterest text-dark"></i></a>
+                <a href="https://instagram.com"><i class="bi bi-instagram text-dark"></i></a>
+
+            </div>
+            <div class="col-lg-4 d-flex align-items-center justify-content-center text-center">
+                <p class="mb-0 text-nowrap"><b>Special Offer</b>: Free Shipping on all orders above <br> $100</p>
+            </div>
+            <div class="nav-contact-link col lg-4 d-flex align-items-auto justify-content-end">
+                <a href="#">contact</a><a href="#">Cart</a><a href="#" onclick="openPopup()">Login</a>
+            </div>
+        </div>
+        <hr style="width: 100%;color: green;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="logo col-lg-4 me-5">
+                    <img src="./images/main-logo.png" alt="logo" class="logo-img ">
+                </div>
+                <div class="page-links col-lg-4  d-flex  ">
+                    <a href="#">Home</a>
+                    <a href="#">Men</a>
+                    <a href="#">Women</a>
+                    <a href="#">page</a>
+                    <a href="#">Shop</a>
+                    <a href="#">Sale</a>
+                </div> 
+            </div>
+        </div>
+        <!-- login popup -->
+        <div class="col-lg login-icons d-flex gap-3">
+
+            <button class="bi-person login-btn" onclick="openPopup()"></button>
+
+            <div class="popup-overlay" id="popup">
+                <div class="popup-box">
+                    <span class="close-btn" onclick="closePopup()">×</span>
+                    <h2>Login</h2>
+                    <input type="email" placeholder="Email" required id="email">
+                    <p id="email-error" class="error-message"></p>
+                    <input type="password" placeholder="Password" required id="password">
+                    <p id="password-error" class="error-message"></p>
+                    <button class="submit-btn" id="login-button">Login</button>
+                </div>
+            </div>
+
+                <!-- login popup js script -->
+            <script>
+                function openPopup() {
+                    console.log("openPopup function triggered!"); 
+                    let popup = document.getElementById("popup");
+                    if (popup) {
+                        popup.style.display = "flex";
+                    } else {
+                        console.error("Popup element not found!");
+                    }
+                }
+
+                function closePopup() {
+                    let popup = document.getElementById("popup");
+                    if (popup) {
+                        popup.style.display = "none";
+                    } else {
+                        console.error("Popup element not found!");
+                    }
+                }
+
+                
+                document.addEventListener("DOMContentLoaded", function () {
+                    const email = document.getElementById("email");
+                    const password = document.getElementById("password");
+                    const loginButton = document.getElementById("login-button");
+                    const emailError = document.getElementById("email-error");
+                    const passwordError = document.getElementById("password-error");
+
+                    loginButton.addEventListener("click", function (event) {
+                        event.preventDefault();
+
+                        let emailValue = email.value.trim();
+                        let passwordValue = password.value.trim();
+                        let isValid = true;
+
+                        // Email validation
+                        if (emailValue === "") {
+                            isValid = false;
+                            email.style.border = "2px solid red";
+                            emailError.innerText = "Email cannot be empty.";
+                        } else if (!/^\S+@\S+\.\S+$/.test(emailValue)) {
+                            isValid = false;
+                            email.style.border = "2px solid red";
+                            emailError.innerText = "Invalid email format.";
+                        } else {
+                            email.style.border = "2px solid green";
+                            emailError.innerText = "";
+                        }
+
+                        // Password validation 
+                        if (passwordValue === "") {
+                            isValid = false;
+                            password.style.border = "2px solid red";
+                            passwordError.innerText = "Password cannot be empty.";
+                        } else if (passwordValue.length < 6) {
+                            isValid = false;
+                            password.style.border = "2px solid red";
+                            passwordError.innerText = "Password must be at least 6 characters.";
+                        } else {
+                            password.style.border = "2px solid green";
+                            passwordError.innerText = "";
+                        }
+
+                   
+                        if (isValid) {
+                            alert("Login successful!"); 
+                            closePopup();
+                        }
+                    });
+                });
+
+
+            </script>
+
+            <a href="#" class="bi-cart"></a>
+            <a href="#" class="bi-search"></a>
+        </div>
+        
+        
+    </nav>
+    <!-- first Section -->
+    <div class="container-fluid first-section">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12 mt-4">
+                <img src="./images/card-image1.jpg" alt="img" id="first-img" class="img-fluid">
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <img src="./images/banner-image3.jpg" alt="img" id="second-img" class="img-fluid">
+            </div>
+            <div class="col-lg-6 col-sm-12 ms-auto ">
+                <img src="./images/card-image3.jpg " alt="img" class="img-fluid" id="third-img">
+            </div>
+        </div>
+    </div>
+    <!-- Coupen section -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="Coupen-section container position-relative">
+                <div class="bold-text position-absolute">10% OFF
+                </div>
+                <div class="display-7  fs-2 fw-bold">10% OFF Discount <br> Coupons</div>
+                <p> Subscribe us to get 10% OFF on all the purchases</p>
+                <button class="btn btn-dark">EMAIL ME</button>
+                
+            </div>
+        </div>
+    </div>
+
+        <!-- first card section -->
+
+    <div class="container">
+        <div class="row">
+            <h2 class="Featured-Products">FEATURED PRODUCTS</h2>
+            <a href="#" class="btn-view-all">VIEW ALL</a>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center card-container">
+            <div class="card col-lg-2 col-md-3 col-sm-4">
+                <img src="./images/card-item2.jpg" alt="card-image1" class="card-images" id="card-img">
+                <p>Running shoes for men <b class="img-price">$99</b></p>
+                <a href="#" class="bi-cart cart"></a>
+            </div>
+            <div class="card col-lg-2 col-md-3 col-sm-4">
+                <img src="./images/card-item3.jpg" alt="card-image2" class="card-images">
+                <p>Running shoes for men <b class="img-price">$99</b></p>
+                <a href="#" class="bi-cart cart"></a>
+            </div>
+            <div class="card col-lg-2 col-md-3 col-sm-4">
+                <img src="./images/card-item4.jpg" alt="card-image3" class="card-images">
+                <p>Running shoes for men <b class="img-price">$99</b></p>
+                <a href="#" class="bi-cart cart"></a>
+            </div>
+            <div class="card col-lg-2 col-md-3 col-sm-4">
+                <img src="./images/card-item6.jpg" alt="card-image5" class="card-images">
+                <p>Running shoes for men <b class="img-price">$99</b></p>
+                <a href="#" class="bi-cart cart"></a>
+            </div>
+            <div class="card col-lg-2 col-md-3 col-sm-4">
+                <img src="./images/card-item8.jpg" alt="card-image6" class="card-images">
+                <p>Running shoes for men <b class="img-price">$99</b></p>
+                <a href="#" class="bi-cart cart"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- second section -->
+
+    <div class="container-fluid">
+        <div class="row second-section">
+            <h2 class="lonches-heading">NEW LONCHES</h2>
+            <div class="col-lg-6">
+                <img src="./images/collection-item1.jpg" alt="collection-img1" class="collection-img">
+            </div>
+            <div class="col-lg-6">
+                <img src="./images/collection-item2.jpg" alt="collection-img2" class="collection-img">
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll(".collection-img");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, { threshold: 0.5 }); // 50% visible aayal animation trigger aavum
+
+    images.forEach((image) => {
+        observer.observe(image);
+    });
+    });
+
+    </script>
+
+       <!-- second card section -->
+
+    <div class="container">
+        <div class="row">
+            <h2 class="Featured-Products">LATEST PRODUCTS</h2>
+            <a href="#" class="btn-view-all">VIEW ALL</a>
+        </div>
+    </div>
+ 
+
+    <div class="container-fluid">
+        <div class="row justify-content-center second-card-container">
+            <div class="card col-lg-2 col-md-3 col-sm-4">
+                <img src="./images/post-item1.jpg" alt="card-image1" id="card-imge"  class="second-card-img">
+                <p>Running shoes for men <b class="img-price">$99</b></p>
+                <a href="#" class="bi-cart cart"></a>
+            </div>
+            <div class="card col-lg-2 col-md-3 col-sm-4">
+                <img src="./images/post-item3.jpg" alt="card-image2" class="second-card-img">
+                <p>Running shoes for men <b class="img-price">$99</b></p>
+                <a href="#" class="bi-cart cart"></a>
+            </div>
+            <div class="card col-lg-2 col-md-3 col-sm-4">
+                <img src="./images/post-item7.jpg" alt="card-image3" class="second-card-img">
+                <p>Running shoes for men <b class="img-price">$99</b></p>
+                <a href="#" class="bi-cart cart"></a>
+            </div>
+            <div class="card col-lg-2 col-md-3 col-sm-4">
+                <img src="./images/post-item4.jpg" alt="card-image5" class="second-card-img">
+                <p>Running shoes for men <b class="img-price">$99</b></p>
+                <a href="#" class="bi-cart cart"></a>
+            </div>
+            <div class="card col-lg-2 col-md-3 col-sm-4">
+                <img src="./images/post-item6.jpg" alt="card-image6" class="second-card-img">
+                <p>Running shoes for men <b class="img-price">$99</b></p>
+                <a href="#" class="bi-cart cart"></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- footer section -->
+
+    <footer class="bg-dark text-white py-4 ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-3 col-sm-12 mb-3">
+                    <h5>About Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Our Story</a></li>
+                        <li><a href="#" class="text-white">Team</a></li>
+                        <li><a href="#" class="text-white">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-12 mb-3">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Web Design</a></li>
+                        <li><a href="#" class="text-white">Development</a></li>
+                        <li><a href="#" class="text-white">Marketing</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-12 mb-3">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Help Center</a></li>
+                        <li><a href="#" class="text-white">FAQ</a></li>
+                        <li><a href="#" class="text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-12 mb-3">
+                    <h5>Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-white">Terms of Service</a></li>
+                        <li><a href="#" class="text-white">Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-12 mb-3">
+                    <h5>Follow Us</h5>
+                    <ul class="list-unstyled d-flex gap-3">
+                        <li><a href="#"><i class="bi bi-facebook text-white fs-4"></i></a></li>
+                        <li><a href="#"><i class="bi bi-twitter text-white fs-4"></i></a></li>
+                        <li><a href="#"><i class="bi bi-instagram text-white fs-4"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="./js/bootstrap.min.js">
+    <link rel="stylesheet" href="./js/login.js">
+</body>
+</html>
